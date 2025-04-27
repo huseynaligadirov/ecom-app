@@ -46,7 +46,7 @@
     font-family: "Bellefair", serif;
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 860px) {
     .navbar {
       justify-content: flex-start; /* Logo solda qalsın */
       padding: 1rem 1.5rem;
@@ -55,11 +55,12 @@
     .logo {
       margin-right: auto; /* Logo sol tərəfdə sıxılır */
       right: 0;
+      left: 5%;
     }
   
     .nav-links {
-      gap: 1rem; /* Menyu itemləri aralı */
-      margin-left: auto; /* Menyu sağa çəkilsin */
+      gap: 1rem; 
+      margin-left: auto; 
     }
   
     .logo a {
