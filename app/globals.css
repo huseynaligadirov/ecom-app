@@ -14,7 +14,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #ffffff;
     --foreground: #ededed;
   }
 }
@@ -23,4 +23,110 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+
+
+
+
+/*home*/
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-section {
+  background-image:
+    url('https://lumilux.b-cdn.net/wp-content/uploads/2024/01/m1_banner_01.jpg'),
+    url('https://lumilux.b-cdn.net/wp-content/uploads/2024/01/m1_ins_01.jpg');
+  background-size: 50% 100%;
+  background-position: left center, right center;
+  background-repeat: no-repeat;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+
+
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.hero-content {
+  z-index: 2;
+  animation: fadeUp 1s ease-out;
+}
+
+.hero-content h1 {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  font-family: "Bellefair", serif;
+}
+
+.hero-content p {
+  font-size: 1.8rem;
+}
+
+.trending-title {
+  font-size: 3rem;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  color: #171717e0;
+  font-family: "Bellefair", serif;
+
+}
+
+/*footer*/
+
+.footer {
+  background: linear-gradient(135deg, #1f1f1f, #2b2b2b);
+  padding: 40px 0;
+  color: white;
+  font-family: 'Inter', sans-serif;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  text-align: center;
+  gap: 20px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-section p {
+  margin: 8px 0;
+  font-size: 16px;
+  opacity: 0.9;
 }

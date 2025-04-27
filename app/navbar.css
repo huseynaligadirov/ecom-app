@@ -1,0 +1,73 @@
+.navbar {
+    background-color: whitesmoke;
+    padding: 2rem 2rem;
+    box-shadow: 0 4px 12px rgba(67, 60, 60, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333333a2;
+    position: relative;
+  }
+  .nav-link:hover{
+    color: black;
+  }
+  .nav-link.active {
+    color: rgb(170, 37, 37);
+  }
+  
+  .logo {
+    position: absolute;
+    left: 10%;
+  }
+  
+  .logo a {
+    text-decoration: none;
+    font-size: 40px;
+    color: #000000;
+    font-family: "Bellefair", serif;
+  }
+  
+  @media (max-width: 768px) {
+    .navbar {
+      justify-content: flex-start; /* Logo solda qalsın */
+      padding: 1rem 1.5rem;
+    }
+  
+    .logo {
+      margin-right: auto; /* Logo sol tərəfdə sıxılır */
+      right: 0;
+    }
+  
+    .nav-links {
+      gap: 1rem; /* Menyu itemləri aralı */
+      margin-left: auto; /* Menyu sağa çəkilsin */
+    }
+  
+    .logo a {
+      font-size: 28px; /* Logo yazısı kiçik */
+    }
+  
+    .nav-link {
+      font-size: 0.9rem; /* Menyu yazıları kiçik */
+    }
+  }
+  
