@@ -1,15 +1,10 @@
-//                                                EL ILE MEHSUL YERLESDIRME 
-
-'use client'
-import React, { useState } from 'react';
+import React from 'react';
 import './products.css';
 
-export default function Products() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('all');
-  
-  // Məhsulların məlumatları
-  const products = [
+
+
+async function getProducts() {
+  return  [
     { name: 'gold bracelet', category: 'bracelet', price: 99, image: 'https://i.pinimg.com/474x/47/99/0e/47990e29b594921cf2740f16f71918f4.jpg' },
     { name: 'gold earing', category: 'earring', price: 149, image: 'https://i.pinimg.com/474x/d8/6c/2c/d86c2c9b682d634ce574df795bade08f.jpg' },
     { name: 'gold earing 2', category: 'earring', price: 79, image: 'https://i.pinimg.com/474x/20/ae/5a/20ae5acab18fcfe2e2b8f8cae2b08bb4.jpg' },
@@ -21,9 +16,16 @@ export default function Products() {
     { name: 'cartier bracelet', category: 'bracelet', price: 79, image: 'https://i.pinimg.com/736x/0a/33/07/0a330793038fba55862184d70abd51ac.jpg' },
   ];
 
-  // Məhsul axtarışı və kateqoriya filtri
-  const filteredProducts = products.filter(product => 
-    (product.name.toLowerCase().includes(searchQuery.toLowerCase()) || searchQuery === '') &&
+}
+
+export default async function Products({ searchParams }) {
+  const allProducts = await getProducts();
+
+  const searchQuery = searchParams?.search?.toLowerCase() || '';
+  const selectedCategory = searchParams?.category || 'all';
+
+  const filteredProducts = allProducts.filter(product =>
+    (product.name.toLowerCase().includes(searchQuery) || searchQuery === '') &&
     (selectedCategory === 'all' || product.category === selectedCategory)
   );
 
@@ -41,30 +43,33 @@ export default function Products() {
         Products
       </div>
 
-      {/* Axtarış və kateqoriya filterləri */}
+      {/* Filters */}
       <div className="filters" style={{ textAlign: 'center', marginBottom: '2rem', color: 'rgb(53, 57, 53)' }}>
-        <input
-          type="text"
-          placeholder="Search by name"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          style={{ padding: '0.5rem', fontSize: '1rem' }}
-        />
-        <select
-          value={selectedCategory}
-          onChange={(e) => setSelectedCategory(e.target.value)}
-          style={{ padding: '0.5rem', fontSize: '1rem', marginLeft: '1rem' }}
-        >
-          <option value="all">All Categories</option>
-          <option value="bracelet">Bracelets</option>
-          <option value="earring">Earrings</option>
-          <option value="watch">Watches</option>
-          <option value="ring">Rings</option>
-          <option value="necklace">Necklaces</option>
-        </select>
+        <form method="get">
+          <input
+            type="text"
+            name="search"
+            placeholder="Search by name"
+            defaultValue={searchQuery}
+            style={{ padding: '0.5rem', fontSize: '1rem' }}
+          />
+          <select
+            name="category"
+            defaultValue={selectedCategory}
+            style={{ padding: '0.5rem', fontSize: '1rem', marginLeft: '1rem' }}
+          >
+            <option value="all">All Categories</option>
+            <option value="bracelet">Bracelets</option>
+            <option value="earring">Earrings</option>
+            <option value="watch">Watches</option>
+            <option value="ring">Rings</option>
+            <option value="necklace">Necklaces</option>
+          </select>
+          <button type="submit" style={{ marginLeft: '1rem', padding: '0.5rem 1rem' }}>Search</button>
+        </form>
       </div>
 
-      {/* Məhsul siyahısı */}
+      {/* Product list */}
       <section className="products-container">
         {filteredProducts.map((product, index) => (
           <div className="product-card" key={index}>
@@ -77,42 +82,3 @@ export default function Products() {
     </div>
   );
 }
-
-
-
-                                                        //FETCH OLANDAN SONRA 
-// // import React, { useEffect, useState } from 'react';
-// // import './products.css';  // CSS faylını import et
-
-// // export default function Products() {
-// //   const [products, setProducts] = useState([]); // Məhsulların saxlanacağı state
-// //   const [loading, setLoading] = useState(true); // Yükləmə vəziyyəti
-
-// //   // Məhsulları fetch edirik
-// //   useEffect(() => {
-// //     fetch('https://api.example.com/products') // API linki
-// //       .then((response) => response.json())
-// //       .then((data) => {
-// //         setProducts(data);  
-// //         setLoading(false);    
-// //       })
-// //       .catch((error) => console.error('Error fetching products:', error));
-// //   }, []);
-
-// //   if (loading) {
-// //     return <div>Loading...</div>;  
-// //   }
-
-// //   return (
-// //     <div className="product-list">
-// //       {products.map((product) => (
-// //         <div key={product.id} className="product-card">
-// //           <img src={product.image} alt={product.name} />
-// //           <h3>{product.name}</h3>
-// //           <p>{product.price} AZN</p>
-// //         </div>
-// //       ))}
-// //     </div>
-// //   );
-// // }
-
