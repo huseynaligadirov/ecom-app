@@ -4,6 +4,9 @@
 import React from 'react';
 import './style.css'; 
 
+import { FaAngleLeft } from "react-icons/fa";
+import { FaAngleRight } from "react-icons/fa";
+
 const ProductCarousel = ({ products }) => {
   const containerRef = React.useRef(null);
 
@@ -24,7 +27,7 @@ const ProductCarousel = ({ products }) => {
         className="carousel__button carousel__button--prev"
         onClick={() => scroll('left')}
       >
-        &lt;
+            <FaAngleLeft/>
       </button>
       
       <div className="carousel__container" ref={containerRef}>
@@ -48,7 +51,7 @@ const ProductCarousel = ({ products }) => {
         className="carousel__button carousel__button--next"
         onClick={() => scroll('right')}
       >
-        &gt;
+        <FaAngleRight/>
       </button>
     </div>
   );
