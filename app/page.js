@@ -1,6 +1,7 @@
 
 
 import ProductCarousel from "@/components/ProductCarousel"; 
+import HomeAdd from "@/components/HomeAdd"; 
 
 export default async function Home() {
    const products = [
@@ -59,6 +60,7 @@ export default async function Home() {
         <div className="trending-title">Trending Products</div>
         <ProductCarousel products={products} />
       </div>
+     <HomeAdd/>
     </>
   );
 }

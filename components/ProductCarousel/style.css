@@ -6,6 +6,8 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 3rem;
+    z-index: 2;
+    animation: fadeUp 1s ease-out;
   }
   
   /* ÜRÜN LİSTESİ KONTEYNIRI */
@@ -57,6 +59,7 @@
     font-weight: 600;
     color: #1f2937;
     margin-bottom: 0.5rem;
+    
   }
   
   .carousel__description {
