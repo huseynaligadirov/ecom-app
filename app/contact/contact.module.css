@@ -13,6 +13,7 @@
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('https://i.pinimg.com/474x/b3/0a/48/b30a48f55b312e849ee904ef65f6e222.jpg');
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     color: #fff;
     border-radius: 8px;
     margin-bottom: 50px;

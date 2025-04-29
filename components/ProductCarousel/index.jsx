@@ -7,6 +7,7 @@ import './style.css';
 import { FaAngleLeft } from "react-icons/fa";
 import { FaAngleRight } from "react-icons/fa";
 
+
 const ProductCarousel = ({ products }) => {
   const containerRef = React.useRef(null);
 

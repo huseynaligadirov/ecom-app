@@ -14,25 +14,25 @@ export default async function Home() {
       id: 11,
       name: "Classic Pearl Necklace",
  
-      image: "https://i.pinimg.com/736x/0a/33/07/0a330793038fba55862184d70abd51ac.jpg"
+      image: "https://i.pinimg.com/474x/11/a0/d1/11a0d1666b9926582c55e9c50edd3f52.jpg"
     },
     {
       id: 111,
       name: "Classic Pearl Necklace",
  
-      image: "https://i.pinimg.com/736x/0a/33/07/0a330793038fba55862184d70abd51ac.jpg"
+      image: "https://i.pinimg.com/474x/7e/34/87/7e3487f72a884d7110ccf30e0a3bcd27.jpg"
     },
     {
       id: 1111,
       name: "Classic Pearl Necklace",
  
-      image: "https://i.pinimg.com/736x/0a/33/07/0a330793038fba55862184d70abd51ac.jpg"
+      image: "https://i.pinimg.com/474x/f3/2d/a9/f32da9ad43bbcc2c176c364d982895d5.jpg"
     },
     {
       id: 11111,
       name: "Classic Pearl Necklace",
  
-      image: "https://i.pinimg.com/736x/0a/33/07/0a330793038fba55862184d70abd51ac.jpg"
+      image: "https://i.pinimg.com/474x/d8/6c/2c/d86c2c9b682d634ce574df795bade08f.jpg"
     },
 
   ];
@@ -40,12 +40,20 @@ export default async function Home() {
 
   return (
     <>
-      <div className="hero-section">
+      {/* <div className="hero-section">
         <div className="hero-content">
           <h1>Welcome to Our Accessories</h1>
           <p>Discover elegant and timeless pieces</p>
         </div>
-      </div>
+      </div> */}
+       <section className="hero-section">
+        <div className="hero-overlay"></div>
+        <div className="hero-content">
+        <h1>Welcome to Our Accessories</h1>
+          <p>Discover elegant and timeless pieces</p>
+       
+        </div>
+      </section>
       
       <div className="trending-container">
         <div className="trending-title">Trending Products</div>
