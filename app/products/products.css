@@ -1,6 +1,8 @@
 
 .products-container {
     display: grid;
+    width: 85%;
+    margin: 0 auto;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
     gap: 2rem;
     padding: 2rem;

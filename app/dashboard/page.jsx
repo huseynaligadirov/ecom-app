@@ -7,6 +7,7 @@ import {
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
+import Products from '@/components/dashboard/Products'
 
 export default function Dashboard() {
   const [user, setUser] = useState(null);
@@ -20,6 +21,9 @@ export default function Dashboard() {
       setUser(firebaseUser);
       setLoading(false);
     });
+
+    document.querySelector('nav').style.display = 'none'
+    document.querySelector('footer').style.display = 'none'
 
     return () => unsubscribe();
   }, []);
@@ -70,10 +74,18 @@ export default function Dashboard() {
 
   return (
     <div className="p-4">
+      <div>
       <h1 className="text-2xl">Welcome, {user.email}</h1>
       <button onClick={handleLogout} className="mt-4 bg-red-500 text-white px-4 py-2 rounded">
         Logout
       </button>
+      </div>
+
+      <div className="tabs">
+        <button className="bg-red-500 text-white p-2 rounded-md" >Product</button>
+      </div>
+
+    <Products/>
     </div>
   );
 }
