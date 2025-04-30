@@ -51,8 +51,13 @@ export default async function Home() {
         <div className="hero-overlay"></div>
         <div className="hero-content">
         <h1>Welcome to Our Accessories</h1>
-          <p>Discover elegant and timeless pieces</p>
-       
+        <p>Discover elegant and timeless pieces</p>
+
+        <div className="w-4/5 md:w-3/5 flex items-center mx-auto" >
+        <input className="bg-white text-black border-0 p-2 outline-none w-full" type="text" name="" id="" />
+        <button className="w-[100px] h-[40px] bg-orange-600" >Axtar</button>
+        </div>
+             
         </div>
       </section>
       
