@@ -30,7 +30,9 @@ body {
 
 
 
-
+html {
+  scroll-behavior: smooth;
+}
 
 /*home*/
 
@@ -223,7 +225,7 @@ body {
 .hero-section2 {
   position: relative;
   height: 500px;
-  background: url('https://i.pinimg.com/736x/0a/33/07/0a330793038fba55862184d70abd51ac.jpg') no-repeat center;
+  background: url('https://i.pinimg.com/474x/5b/7a/7e/5b7a7e2a47e714de4637eded5fd12572.jpg') no-repeat center;
   background-size: cover;
   display: flex;
   align-items: center;
@@ -231,6 +233,7 @@ body {
   color: white;
   text-align: center;
   margin-bottom: 40px;
+  
 }
 
 .hero-overlay2 {
@@ -239,9 +242,11 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(37, 36, 36, 0.514);
+  background: rgba(37, 36, 36, 0.767);
 }
-
+.hero-content2 {
+  z-index: 9999;
+}
 .hero-content2 h1 {
   font-size: 3rem;
   margin-bottom: 10px;

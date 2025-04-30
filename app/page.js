@@ -2,7 +2,7 @@
 
 import ProductCarousel from "@/components/ProductCarousel"; 
 import HomeAdd from "@/components/HomeAdd"; 
-
+import Link from 'next/link';
 export default async function Home() {
    const products = [
     {
@@ -57,7 +57,9 @@ export default async function Home() {
       </section>
       
       <div className="trending-container">
-        <div className="trending-title">Trending Products</div>
+     
+     <div id="trending" className="trending-title">Trending Products</div>
+ 
         <ProductCarousel products={products} />
       </div>
      <HomeAdd/>

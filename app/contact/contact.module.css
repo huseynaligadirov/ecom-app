@@ -1,278 +1,294 @@
-/* app/contact/contact.module.css */
 
-.contactContainer {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    font-family: 'Arial', sans-serif;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero Banner */
+.heroBanner {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+              url('https://i.pinimg.com/474x/2b/03/1b/2b031baaac9149e0960d524feb611444.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+  margin-bottom: 40px;
+
+}
+
+.heroContent h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.heroContent p {
+  font-size: 1.2rem;
+}
+
+/* Contact Grid */
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+@media (max-width: 768px) {
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Contact Info */
+.contactInfo {
+  display: grid;
+  gap: 20px;
+  color: rgba(41, 40, 40, 0.636);
+}
+
+.infoCard {
+  background: #f9f9f9;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.infoIcon {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #d4af37; /* Altın rengi */
+}
+
+.infoCard h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.infoDetail {
+  color: #322f2f;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+.socialSection {
+  margin-top: 20px;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.socialIcons a {
+  color: #333;
+  transition: color 0.3s;
+}
+
+.socialIcons a:hover {
+  color: #d4af37;
+}
+
+/* Contact Form */
+.contactForm {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contactForm h2 {
+  margin-bottom: 20px;
+  color: #1f201f;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: rgba(25, 24, 24, 0.638);
+
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+
+}
+
+.formGroup textarea {
+  min-height: 120px;
+  resize: vertical;
+ 
+}
+
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkboxGroup input {
+  width: auto;
+  
+}
+
+.submitButton {
+  background: #d4af37;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: 100%;
+}
+
+.submitButton:hover {
+  background: #c19b2e;
+}
+
+.submitButton:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.successMessage {
+  background: #d4edda;
+  color: #155724;
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.errorMessage {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+/* Map Section */
+.mapSection {
+  margin: 60px 0;
+}
+
+.mapSection h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.mapContainer {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+/* WhatsApp Section */
+.whatsappSection {
+  margin-top: 30px;
+  text-align: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.whatsappSection p:first-child {
+  margin-bottom: 15px;
+  color: #4a5568;
+  font-size: 0.95rem;
+}
+
+.whatsappButton {
+  background-color: #25D366;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 10px 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 250px;
+}
+
+.whatsappButton:hover {
+  background-color: #128C7E;
+  transform: translateY(-2px);
+}
+
+.phoneLink {
+  color: #25D366;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+.phoneLink:hover {
+  color: #128C7E;
+  text-decoration: underline;
+}
+
+/* Status Messages */
+.successMessage {
+  background: #d4edda;
+  color: #155724;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  text-align: center;
+  border: 1px solid #c3e6cb;
+}
+
+.errorMessage {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  text-align: center;
+  border: 1px solid #f5c6cb;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+  .heroBanner {
+    padding: 60px 20px;
   }
   
-  .contactHeader {
-    text-align: center;
-    padding: 60px 0;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('https://i.pinimg.com/474x/b3/0a/48/b30a48f55b312e849ee904ef65f6e222.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: #fff;
-    border-radius: 8px;
-    margin-bottom: 50px;
-  }
-  
-  .contactHeader h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-  }
-  
-  .contactHeader p {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  .contactContent {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 40px;
-    margin-bottom: 60px;
-  }
-  
-  @media (max-width: 768px) {
-    .contactContent {
-      grid-template-columns: 1fr;
-    }
-  }
-  
-  .contactInfo {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-  }
-  
-  .infoBox {
-    background-color: #f9f8f6;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  }
-  
-  .infoIcon {
+  .heroContent h1 {
     font-size: 2rem;
-    margin-bottom: 15px;
-    color: #d4af37;
-    text-align: center;
-  }
-  
-  .infoBox h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: #333;
-  }
-  
-  .infoBox p {
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 5px;
-  }
-  
-  .socialLinks {
-    margin-top: 10px;
-  }
-  
-  .socialLinks h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 15px;
-    color: #333;
-  }
-  
-  .socialIcons {
-    display: flex;
-    gap: 15px;
-  }
-  
-  .socialIcon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background-color: #f0f0f0;
-    border-radius: 50%;
-    color: #666;
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-  
-  .socialIcon:hover {
-    background-color: #d4af37;
-    color: #fff;
-  }
-  
-  .socialIcon span {
-    /* Ekran okuyucular için metin, görünür olmasın */
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
   }
   
   .contactForm {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  }
-  
-  .contactForm h2 {
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-bottom: 25px;
-    color: #333;
-    text-align: center;
-  }
-  
-  .form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .formGroup {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .formLabel {
-    font-size: 0.9rem;
-    margin-bottom: 8px;
-    color: #555;
-    font-weight: 500;
-  }
-  
-  .formControl {
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
-    transition: border-color 0.3s;
-  }
-  
-  .formControl:focus {
-    outline: none;
-    border-color: #d4af37;
-    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
-  }
-  
-  .checkboxGroup {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .checkbox {
-    width: 18px;
-    height: 18px;
-    accent-color: #d4af37;
-  }
-  
-  .submitButton {
-    background-color: #d4af37;
-    color: #fff;
-    border: none;
-    padding: 14px 20px;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin-top: 10px;
-  }
-  
-  .submitButton:hover {
-    background-color: #c49b2f;
-  }
-  
-  .mapSection {
-    margin-bottom: 60px;
-  }
-  
-  .mapSection h2 {
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-bottom: 25px;
-    color: #333;
-    text-align: center;
-  }
-  
-  .mapContainer {
-    height: 400px;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-  }
-  
-  .mapPlaceholder {
-    height: 100%;
-    background-color: #f0f0f0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #666;
-    text-align: center;
     padding: 20px;
   }
   
-  .faqSection {
-    margin-bottom: 80px;
+  .whatsappButton {
+    padding: 10px 15px;
+    font-size: 0.9rem;
   }
-  
-  .faqSection h2 {
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-bottom: 30px;
-    color: #333;
-    text-align: center;
-  }
-  
-  .faqItem {
-    background-color: #fff;
-    padding: 20px 25px;
-    border-radius: 8px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-    margin-bottom: 15px;
-  }
-  
-  .faqItem h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: #333;
-  }
-  
-  .faqItem p {
-    color: #666;
-    line-height: 1.6;
-  }
-  
-  @media (max-width: 768px) {
-    .contactHeader {
-      padding: 40px 0;
-    }
-    
-    .contactHeader h1 {
-      font-size: 2.5rem;
-    }
-    
-    .infoBox, .contactForm {
-      padding: 20px;
-    }
-  }
+}

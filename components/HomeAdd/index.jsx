@@ -19,11 +19,13 @@ export default function HomeAdd() {
     <div>
       {/* HeroSection */}
       <section className="hero-section2">
-        {/* <div className="hero-overlay2"></div> */}
+        <div className="hero-overlay2"></div>
         <div className="hero-content2">
           <h1>Welcome to Benim Jewelry</h1>
           <p>Timeless elegance, crafted for you</p>
-          <button className="cta-button">Explore Collections</button>
+     <Link href="/products">
+     <button className="cta-button">Explore Collections</button>
+     </Link>     
         </div>
       </section>
 
@@ -45,24 +47,24 @@ export default function HomeAdd() {
       </div>
 
       {/* SpecialOffer */}
-      <section className="special-offer">
-        <div className="offer-content">
+      <section className="special-offer" id='indirimler'>
+        <div className="offer-content text-red-500 font-medium ">
           <h2>Limited Time Offer!</h2>
           <p>
             Get 15% off with code: <strong>GOLD15</strong>
           </p>
-          <button className="offer-button">Shop Now</button>
+          <button className="offer-button mt-8 ">Shop Now</button>
         </div>
       </section>
 
       {/* Testimonials */}
       <div className="testimonials-container">
-        <h2 className="section-title">Loved by Customers</h2>
-        <div className="reviews-grid">
+        <h2 className="section-title text-red-900">Loved by Customers</h2>
+        <div className="reviews-grid text-gray-900">
           {reviews.map((review) => (
             <div key={review.id} className="review-card">
               <p>"{review.text}"</p>
-              <span>— {review.author}</span>
+              <span className='text-gray-500 ' >— {review.author}</span>
             </div>
           ))}
         </div>
