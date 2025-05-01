@@ -24,7 +24,7 @@ export default function HomeAdd() {
           <h1>Welcome to Benim Jewelry</h1>
           <p>Timeless elegance, crafted for you</p>
      <Link href="/products">
-     <button className="cta-button">Explore Collections</button>
+     <button className="cta-button  bg-red-800 hover:bg-red-700 transition-colors duration-300 shadow-md ">Explore Collections</button>
      </Link>     
         </div>
       </section>

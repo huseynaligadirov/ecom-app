@@ -55,7 +55,10 @@ export default async function Home() {
 
         <div className="w-4/5 md:w-3/5 flex items-center mx-auto" >
         <input className="bg-white text-black border-0 p-2 outline-none w-full" type="text" name="" id="" />
-        <button className="w-[100px] h-[40px] bg-orange-600" >Axtar</button>
+        {/* <button className="w-[100px] h-[40px] bg-[#FF6F00] " >Axtar</button>   */}
+        <button className="w-[100px] h-[40px] bg-red-800 hover:bg-red-700 transition-colors duration-300 shadow-md">
+           Axtar
+        </button>
         </div>
              
         </div>
