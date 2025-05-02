@@ -9,8 +9,8 @@ export default function ContactPage() {
       {/* Hero Banner */}
       <section className={styles.heroBanner}>
         <div className={styles.heroContent}>
-          <h1>Bizimle İletişime Geçin</h1>
-          <p>Size en kısa sürede dönüş yapacağız</p>
+          <h1>Contact Us</h1>
+          <p>We will get back to you as soon as possible</p>
         </div>
       </section>
 
@@ -20,27 +20,27 @@ export default function ContactPage() {
         <div className={styles.contactInfo}>
           <div className={styles.infoCard}>
             <div className={styles.infoIcon}>📱</div>
-            <h3>Telefon</h3>
+            <h3>Phone</h3>
             <p>+90 (212) 555 44 33</p>
-            <p className={styles.infoDetail}>Pazartesi - Cumartesi: 09:00 - 19:00</p>
+            <p className={styles.infoDetail}>Monday - Saturday: 09:00 - 19:00</p>
           </div>
 
           <div className={styles.infoCard}>
             <div className={styles.infoIcon}>✉️</div>
-            <h3>E-posta</h3>
+            <h3>E-mail</h3>
             <p>info@jewelrystore.com</p>
             <p>support@jewelrystore.com</p>
           </div>
 
           <div className={styles.infoCard}>
             <div className={styles.infoIcon}>🏬</div>
-            <h3>Mağaza Adresimiz</h3>
+            <h3>Our Store Address</h3>
             <p>İstiklal Caddesi No: 123</p>
             <p>Beyoğlu, İstanbul</p>
           </div>
 
           <div className={styles.socialSection}>
-            <h3>Sosyal Medya</h3>
+            <h3>Social Media</h3>
             <div className={styles.socialIcons}>
               <a href="https://instagram.com" aria-label="Instagram">
                 <span>Instagram</span>
@@ -61,7 +61,7 @@ export default function ContactPage() {
 
       {/* Harita Bölümü */}
       <section className={styles.mapSection}>
-        <h2>Bizi Ziyaret Edin</h2>
+        <h2>Visit Us </h2>
         <div className={styles.mapContainer}>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.279637145478!2d28.97885931571606!3d41.02546232624979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab974807d0575%3A0x44089783d1089f31!2s%C4%B0stiklal%20Cd.!5e0!3m2!1str!2str!4v1623761484761!5m2!1str!2str"

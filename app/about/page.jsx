@@ -33,12 +33,12 @@ export default async function AboutPage() {
   return (
     <main className={styles.aboutContainer}>
       <section className={styles.heroSection}>
-        <h1>Eşsiz Mücevher Sanatı</h1>
-        <p>25 yıldır zarif tasarımlarımızla hayatınızın özel anlarını taçlandırıyoruz</p>
+        <h1>Unique Jewellery Art</h1>
+        <p>For 25 years, we crown the special moments of your life with our elegant designs</p>
       </section>
 
       <section className={styles.sectionAnimation}>
-        <h2 className={styles.sectionTitle}>Hikayemiz</h2>
+        <h2 className={styles.sectionTitle}>Our Story</h2>
         <div className={styles.storySection}>
           <div className={styles.storyImage}>
             <img src="https://i.pinimg.com/474x/95/5e/d1/955ed15a1121eee47ce8e569202878a5.jpg" alt=""  />
@@ -50,22 +50,23 @@ export default async function AboutPage() {
             /> */}
           </div>
           <div className={styles.storyContent}>
-            <h2>Tutkuyla Başlayan Bir Yolculuk</h2>
+            <h2>A Journey Started with Passion</h2>
             <p>
-              2005 yılında küçük bir aile işletmesi olarak başlayan yolculuğumuz, bugün Türkiye'nin önde gelen mücevher markalarından biri olarak devam ediyor. Her bir parçamız, geleneksel el işçiliği ve modern tasarım anlayışını bir araya getirerek, sizlere benzersiz mücevherler sunmayı amaçlıyor.
+             
+Started in 2005 as a small family business, our journey continues today as one of the leading jewellery brands in Turkey. Each of our pieces aims to offer you unique jewellery by combining traditional craftsmanship and modern design approach.
             </p>
             <p>
-              Mücevherlerimizde sadece en kaliteli malzemeleri kullanıyor, her bir taşın ve metalin kaynağını özenle seçiyoruz. Sürdürülebilirlik ve etik üretim anlayışımız, işimizin temelini oluşturuyor.
+            We use only the highest quality materials in our jewellery and carefully select the source of each stone and metal. Sustainability and ethical production are at the heart of our business.
             </p>
             <p className={styles.goldText}>
-              <strong>Misyonumuz:</strong> Zamansız tasarımlarla yaşamın özel anlarını ölümsüzleştirmek.
+              <strong>Our mission:</strong> To immortalise the special moments of life with timeless designs.
             </p>
           </div>
         </div>
       </section>
 
       <section className={styles.sectionAnimation}>
-        <h2 className={styles.sectionTitle}>Tasarım Ekibimiz</h2>
+        <h2 className={styles.sectionTitle}>Our Design Team</h2>
         <div className={styles.teamGrid}>
           {companyData.team.map((member) => (
             <div key={member.id} className={styles.teamMember}>
@@ -86,46 +87,43 @@ export default async function AboutPage() {
       </section>
 
       <section className={`${styles.craftsmanshipSection} ${styles.sectionAnimation}`}>
-        <h2 className={styles.sectionTitle}>Zanaatımız</h2>
+        <h2 className={styles.sectionTitle}>Our craft</h2>
         <div className={styles.craftsmanshipGrid}>
           <div className={styles.craftsmanshipContent}>
             <p>
-              Her mücevher, uzman zanaatkarlarımız tarafından İstanbul'daki atölyemizde el işçiliğiyle üretiliyor. Modern teknolojiyle geleneksel teknikleri birleştirerek, hem dayanıklılığı hem estetiği bir arada sunuyoruz.
+            Each jewel is handcrafted by our expert artisans in our workshop in Istanbul. By combining modern technology with traditional techniques, we offer both durability and aesthetics.
             </p>
             <ul className={styles.featuresList}>
-              <li>Etik kaynaklı değerli taşlar</li>
-              <li>Geri dönüştürülmüş değerli metaller</li>
-              <li>Çevre dostu üretim süreci</li>
-              <li>Ömür boyu garanti</li>
+              <li>Ethically sourced gemstones</li>
+              <li>Recycled precious metals</li>
+              <li>Environmentally friendly production process</li>
+              <li>Lifetime guarantee</li>
             </ul>
           </div>
           <div className={styles.craftsmanshipImage}>
-            <Image 
-              src="/images/crafting.jpg" 
-              alt="Zanaat Süreci" 
-              fill
-            />
+         <img src="https://i.pinimg.com/736x/df/f1/3c/dff13cfc73e6ed8585068a7c1ba26935.jpg" alt="" />
           </div>
         </div>
       </section>
 
       <section className={`${styles.valuesSection} ${styles.sectionAnimation}`}>
-        <h2 className={styles.sectionTitle}>Değerlerimiz</h2>
+        <h2 className={styles.sectionTitle}>Our Values</h2>
         <div className={styles.valuesGrid}>
           <div className={styles.valueCard}>
             <div className={styles.valueIcon}>★</div>
-            <h3>Kalite</h3>
-            <p>Her bir mücevher, en yüksek kalite standartlarında üretilir ve titizlikle kontrol edilir.</p>
+            <h3>Quality</h3>
+            <p>
+            Each piece of jewellery is manufactured to the highest quality standards and meticulously checked.</p>
           </div>
           <div className={styles.valueCard}>
             <div className={styles.valueIcon}>♥</div>
-            <h3>Tutku</h3>
-            <p>Mücevher yapımına olan tutkumuz, her parçada kendini gösterir ve müşterilerimize ilham verir.</p>
+            <h3>Passion</h3>
+            <p>Our passion for jewellery making is evident in every piece and inspires our customers.</p>
           </div>
           <div className={styles.valueCard}>
             <div className={styles.valueIcon}>♦</div>
-            <h3>Sürdürülebilirlik</h3>
-            <p>Çevre dostu uygulamalarla, gelecek nesiller için sürdürülebilir bir mücevher sektörü yaratmayı hedefliyoruz.</p>
+            <h3>Sustainability</h3>
+            <p>With environmentally friendly practices, we aim to create a sustainable jewellery industry for future generations.</p>
           </div>
         </div>
       </section>

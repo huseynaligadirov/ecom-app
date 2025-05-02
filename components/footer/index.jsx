@@ -17,9 +17,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Hakkımızda Bölümü */}
           <div>
-            <h3 className="text-lg font-semibold text-red-800 mb-4">Hakkımızda</h3>
+            <h3 className="text-lg font-semibold text-red-800 mb-4">About Us</h3>
             <p className="text-gray-600 mb-4">
-              Benzersiz ve zarif takı ve aksesuarlarımızla kişisel tarzınızı yansıtın. Her parça, ustalıkla ve sizin için özenle hazırlanmıştır.
+            Reflect your personal style with our unique and elegant jewellery and accessories. Each piece is expertly crafted with care and attention to detail.
             </p>
             <div className="flex space-x-4 mt-4">
               <Link href="https://instagram.com" className="text-red-500 hover:text-pink-700" aria-label="Instagram">
@@ -36,32 +36,32 @@ export default function Footer() {
 
           {/* Hızlı Bağlantılar */}
           <div>
-            <h3 className="text-lg font-semibold text-red-800 mb-4">Hızlı Bağlantılar</h3>
+            <h3 className="text-lg font-semibold text-red-800 mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
                 <Link href="/products" className="text-gray-600 hover:text-red-600">
-                  Koleksiyonlar
+                Collections
                 </Link>
               </li>
               <li>
                 <Link href="#trending" scroll={true} className="text-gray-600 hover:text-red-600">
-                  Yeni Gelenler
+                New Arrivals
                 </Link>
               </li>
               <li>
                 <Link href="#indirimler"   className="text-gray-600 hover:text-red-600">
-                  İndirimler
+                Discounts
                 </Link>
               </li>
             
               <li>
                 <Link href="/about" className="text-gray-600 hover:text-red-600">
-                  Hakkımızda
+                 About us
                 </Link>
               </li>
               <li>
                 <Link href="/contact" className="text-gray-600 hover:text-red-600">
-                  İletişim
+                 Contact us
                 </Link>
               </li>
             </ul>
@@ -69,7 +69,7 @@ export default function Footer() {
 
           {/* İletişim Bilgileri */}
           <div>
-            <h3 className="text-lg font-semibold text-red-700 mb-4">İletişim</h3>
+            <h3 className="text-lg font-semibold text-red-700 mb-4">Contact</h3>
             <div className="space-y-3">
               <div className="flex items-start">
                 <MapPin size={18} className="text-red-500 mr-2 mt-1" />
@@ -95,9 +95,9 @@ export default function Footer() {
 
           {/* Bülten Aboneliği - Client Component'i burada kullanıyoruz */}
           <div>
-            <h3 className="text-lg font-semibold text-red-700 mb-4">Bültenimize Abone Olun</h3>
+            <h3 className="text-lg font-semibold text-red-700 mb-4">Subscribe to our Newsletter</h3>
             <p className="text-gray-600 mb-4">
-              En son koleksiyonlar, özel indirimler ve etkinlikler hakkında bilgi alın.
+            Find out about the latest collections, special discounts and events.
             </p>
             {/* <NewsletterForm /> */}
           </div>
@@ -107,17 +107,17 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-gray-200">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-600 text-sm mb-4 md:mb-0">
-              &copy; {currentYear} Takı & Aksesuar Mağazanız. Tüm hakları saklıdır.
+              &copy; {currentYear} Your Jewellery & Accessories Store. All rights reserved.
             </p>
             <div className="flex space-x-4">
               <Link href="/kullanim-sartlari" className="text-gray-600 hover:text-pink-600 text-sm">
-                Kullanım Şartları
+              Terms of Use
               </Link>
               <Link href="/gizlilik-politikasi" className="text-gray-600 hover:text-pink-600 text-sm">
-                Gizlilik Politikası
+              Privacy Policy
               </Link>
               <Link href="/cerezler" className="text-gray-600 hover:text-pink-600 text-sm">
-                Çerez Politikası
+              Cookie Policy
               </Link>
             </div>
           </div>

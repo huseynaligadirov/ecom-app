@@ -54,6 +54,10 @@
 
 
 
+
+
+
+
 import ProductCardWithModal from "@/components/ProductCardWithModal"; 
 import './products.css'; 
 
@@ -108,7 +112,7 @@ export default async function Products({ searchParams }) {
             <select 
               name="category" 
               defaultValue={selectedCategory}
-              className="category-select"
+              className="category-select text-red-900"
             >
               {categories.map((category) => (
                 <option key={category} value={category}>
@@ -123,7 +127,7 @@ export default async function Products({ searchParams }) {
             name="search"
             placeholder="Search products..."
             defaultValue={searchQuery}
-            className="search-input"
+            className="search-input text-red-800"
           />
           <button type="submit" className="search-button">
             Search
