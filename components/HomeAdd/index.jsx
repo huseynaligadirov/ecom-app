@@ -5,9 +5,22 @@ import Link from 'next/link';
 
 export default function HomeAdd() {
   const categories = [
-    { name: "Necklaces", image: "https://i.pinimg.com/474x/70/a0/45/70a045d6146336f581eecc3be902dd28.jpg", slug:'necklackes' },
-    { name: "Rings", image: "https://i.pinimg.com/474x/eb/83/fe/eb83fef71973eb19e92c462fcbc8a021.jpg" ,slug:'rings'},
-    { name: "Earrings", image: "https://i.pinimg.com/474x/1f/05/12/1f0512ab67b98ce06f08113283229b2b.jpg" , slug:'earrings'},
+    { 
+      name: 'Bracelet', 
+      slug: 'bracelet', 
+      image: 'https://i.pinimg.com/474x/47/99/0e/47990e29b594921cf2740f16f71918f4.jpg'
+    },
+    { 
+      name: 'Earring', 
+      slug: 'earring', 
+      image: 'https://i.pinimg.com/474x/d8/6c/2c/d86c2c9b682d634ce574df795bade08f.jpg'
+    },
+    { 
+      name: 'Watch', 
+      slug: 'watch', 
+      image: 'https://i.pinimg.com/474x/51/b2/92/51b29250597ee90a811c2c3211aa8647.jpg'
+    },
+    
   ];
 
   const reviews = [
@@ -29,19 +42,17 @@ export default function HomeAdd() {
         </div>
       </section>
 
-      {/* FeaturedCategories */}
-      <div className="categories-container">
+  {/* FeaturedCategories */}
+  <div className="categories-container">
         <h2 className="section-title text-red-900">Shop by Category</h2>
         <div className="categories-grid">
           {categories.map((category, index) => (
-                <Link key={index} href={`/products?category=${category.slug}`}>
-
-            <div key={index} className="category-card">
-              <img src={category.image} alt={category.name} />
-              <h3>{category.name}</h3>
-            </div>
-
-             </Link>
+            <Link key={index} href={`/products?category=${category.slug}`} className="category-link">
+              <div className="category-card">
+                <img src={category.image} alt={category.name} />
+                <h3>{category.name}</h3>
+              </div>
+            </Link>
           ))}
         </div>
       </div>
