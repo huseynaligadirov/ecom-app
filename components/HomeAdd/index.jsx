@@ -3,6 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 
 
+
 export default function HomeAdd() {
   const categories = [
     { 
@@ -80,6 +81,7 @@ export default function HomeAdd() {
           ))}
         </div>
       </div>
+      
     </div>
   );
 }

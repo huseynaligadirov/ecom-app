@@ -3,7 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar"; 
 import Footer from "@/components/footer"; 
 
-
+import 'swiper/css';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
         <link href="https://fonts.googleapis.com/css2?family=Bellefair&family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet"></link>
-
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

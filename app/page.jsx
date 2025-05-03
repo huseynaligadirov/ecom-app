@@ -3,6 +3,7 @@
 import ProductCarousel from "@/components/ProductCarousel"; 
 import HomeAdd from "@/components/HomeAdd"; 
 import Link from 'next/link';
+// import Swiper from '@/components/Swiper';
 export default async function Home() {
    const products = [
     {
@@ -70,6 +71,7 @@ export default async function Home() {
  
         <ProductCarousel products={products} />
       </div>
+   
      <HomeAdd/>
     </>
   );
