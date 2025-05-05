@@ -1,4 +1,3 @@
-// pages/dashboard/index.js
 'use client'
 import { useEffect, useState } from "react";
 import { auth } from "@/lib/firebase";
@@ -47,45 +46,50 @@ export default function Dashboard() {
   if (!user) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen">
-        <h2 className="text-xl mb-4">Admin Login</h2>
-        <form onSubmit={handleLogin} className="space-y-2">
-          <input
-            type="email"
-            placeholder="Email"
-            className="border px-4 py-2 rounded"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          /><br />
-          <input
-            type="password"
-            placeholder="Password"
-            className="border px-4 py-2 rounded"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          /><br />
-          <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
-            Login
-          </button>
-          {error && <p className="text-red-500">{error}</p>}
-        </form>
+        <div className="bg-white p-6 border-[1px] border-black rounded-3xl">
+          <h2 className="text-xl mb-4 text-black text-center">Login</h2>
+          <form onSubmit={handleLogin} className="space-y-2">
+            <input
+              type="email"
+              placeholder="Email"
+              className="border px-4 py-2 rounded text-black placeholder:text-black outline-none"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            /><br />
+            <input
+              type="password"
+              placeholder="Password"
+              className="border px-4 py-2 rounded text-black outline-none placeholder:text-black"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            /><br />
+            <button type="submit" className="bg-blue-500 w-full text-white px-4 py-2 rounded">
+              Login
+            </button>
+            {error && <p className="text-red-500">{error}</p>}
+          </form>
+        </div>
       </div>
     );
   }
 
   return (
     <div className="p-4">
-      <div>
-      <h1 className="text-2xl">Welcome, {user.email}</h1>
-      <button onClick={handleLogout} className="mt-4 bg-red-500 text-white px-4 py-2 rounded">
-        Logout
-      </button>
+      <div className="flex items-center w-full justify-between border-2 px-[20px] py-[5px] ">
+        <h1 className="text-2xl text-black">Welcome, {user.email}</h1>
+        <button onClick={handleLogout} className="mt-4 bg-red-500 text-white px-4 py-2 rounded translate-y-[-7px]">
+          Logout
+        </button>
       </div>
 
-      <div className="tabs">
-        <button className="bg-red-500 text-white p-2 rounded-md" >Product</button>
+      <div className="tabs flex gap-2 p-2">
+        <button className="bg-red-500 text-white p-2 rounded-md" >Məhsullar</button>
+        <button className="bg-red-500 text-white p-2 rounded-md" >Kateqoriya</button>
       </div>
 
-    <Products/>
+      <div className="p-2">
+        <Products />
+      </div>
     </div>
   );
 }
