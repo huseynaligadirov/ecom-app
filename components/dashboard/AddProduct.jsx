@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { collection, addDoc } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 import AWS from 'aws-sdk'
+
 const AddProduct = ({set}) => {
     const [details, setDetails] = useState({
         title: '',
@@ -13,23 +14,26 @@ const AddProduct = ({set}) => {
         price: 0,
     })
     const [loading, setLoading] = useState(false)
-
+    const [uploadProgress, setUploadProgress] = useState(0)
+   
     AWS.config.update({
         accessKeyId: process.env.NEXT_PUBLIC_AWS_ACCESS_KEY_ID,
         secretAccessKey: process.env.NEXT_PUBLIC_AWS_SECRET_ACCESS_KEY,
         region: process.env.NEXT_PUBLIC_AWS_REGION,
-      })
+    })
 
     const s3 = new AWS.S3({
         apiVersion: '2006-03-01',
         params: {
             Bucket: process.env.NEXT_PUBLIC_AWS_BUCKET_NAME
         }
-      });
+    });
 
-      const uploadToS3 = (selectedFile) => {
+    const uploadToS3 = (selectedFile) => {
         if (!selectedFile) return;
     
+        setLoading(true); 
+        
         const params = {
           Bucket: process.env.NEXT_PUBLIC_AWS_BUCKET_NAME,
           Key: `uploads/${Date.now()}_${selectedFile.name}`,
@@ -50,6 +54,7 @@ const AddProduct = ({set}) => {
         });
     
         upload.send((err, data) => {
+          setLoading(false); 
           if (err) {
             console.error('Upload error:', err);
           } else {
@@ -58,7 +63,7 @@ const AddProduct = ({set}) => {
             return data.Location;
           }
         });
-      };
+    };
 
     const handlePhotoUpload = async (e) => {
         const file = e.target.files[0];
@@ -67,9 +72,18 @@ const AddProduct = ({set}) => {
                 const imageUrl = uploadToS3(file);
             } catch (error) {
                 console.error('Failed to upload image:', error);
-                // You might want to show an error message to the user here
+                setLoading(false); 
             }
         }
+    }
+
+    const handleRemovePhoto = (indexToRemove) => {
+        // Create a new array without the photo at the specified index
+        const updatedPhotos = details.photos.filter((_, index) => index !== indexToRemove);
+        setDetails(prev => ({
+            ...prev,
+            photos: updatedPhotos
+        }));
     }
 
     const handleInputChange = (e) => {
@@ -84,8 +98,9 @@ const AddProduct = ({set}) => {
         e.preventDefault();
         console.log(details);
         
-    
         try {
+            setLoading(true); // Set loading to true when form is submitted
+            
             // Validate required fields
             if (!details.title || !details.category || !details.price || !details.photos?.length) {
                 throw new Error('Please fill in all required fields');
@@ -135,14 +150,22 @@ const AddProduct = ({set}) => {
         } catch (error) {
             console.error('Error adding product:', error.message || error);
         } finally {
-            setLoading(false);
+            setLoading(false); 
         }
     };
     
-
     return (
         <div className='absolute top-0 left-0 w-full h-[100vh] bg-[rgba(0,0,0,0.8)] flex items-center justify-center' >
-            <div className='flex flex-col bg-white rounded-2xl p-4 gap-2 min-w-[200px] w-[80%] md:w-[40%]' >
+            <div className='flex flex-col bg-white rounded-2xl p-4 gap-2 min-w-[200px] w-[80%] md:w-[40%] relative' >
+                {/* Loading Overlay */}
+                {loading && (
+                    <div className="absolute top-0 left-0 w-full h-full bg-[rgba(255,255,255,0.8)] flex flex-col items-center justify-center rounded-2xl z-10">
+                        <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+                        <p className="mt-4 text-blue-500 font-semibold">Yüklənir... {uploadProgress > 0 ? `${uploadProgress}%` : ''}</p>
+                    </div>
+                )}
+                
+                {/* Regular Content */}
                 <div className='flex justify-between px-2'>
                     <div></div>
                     <button onClick={()=> set(false)} className='text-black text-[16px] font-bold' >x</button>
@@ -191,22 +214,31 @@ const AddProduct = ({set}) => {
                         required
                     />
                     <div className="photos border-[1px] p-2 border-black flex flex-col gap-2">
-                        <b className='text-black' >Şəkillər</b>
+                        <b className='text-black'>Şəkillər</b>
                         <div className='flex gap-2'>
                             {
                                 details.photos.map((photo, index) => (
-                                    <img 
-                                        className='w-[50px] h-[50px]' 
-                                        key={index} 
-                                        src={photo} 
-                                        width={200} 
-                                        height={200} 
-                                    />
+                                    <div key={index} className="relative">
+                                        <img 
+                                            className='w-[50px] h-[50px] object-cover' 
+                                            src={photo} 
+                                            width={50} 
+                                            height={50} 
+                                            alt={`Product image ${index + 1}`}
+                                        />
+                                        <button 
+                                            type="button"
+                                            className='absolute top-0 right-0 bg-red-500 text-white w-5 h-5 flex items-center justify-center rounded-full text-xs'
+                                            onClick={() => handleRemovePhoto(index)}
+                                        >
+                                            x
+                                        </button>
+                                    </div>
                                 ))
                             }
 
                             <div className='w-[50px] h-[50px] flex items-center justify-center bg-blue-500' >
-                                <label htmlFor="file">+</label>
+                                <label htmlFor="file" className="cursor-pointer text-white text-xl">+</label>
                                 {details.photos.length < 5 && (
                                     <input 
                                         id='file' 
