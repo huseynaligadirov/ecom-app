@@ -1,36 +1,27 @@
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import styles from './page.module.css';
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "@/lib/firebase";
 
-// This should match your product data structure
-const products = [
-  { 
-    id: 1, 
-    name: 'gold bracelet', 
-    category: 'bracelet', 
-    price: 99, 
-    description: 'Beautiful gold bracelet with intricate details.', 
-    image: 'https://i.pinimg.com/474x/47/99/0e/47990e29b594921cf2740f16f71918f4.jpg',
-    altImages: [
-      'https://example.com/alt1.jpg',
-      'https://example.com/alt2.jpg'
-    ]
-  },
-  // Add all other products with the same structure
-];
+async function fetchProductById(productId) {
+  try {
+    const docRef = doc(db, "products", productId); // "products" is your collection name
+    const docSnap = await getDoc(docRef);
 
-export async function generateStaticParams() {
-  return products.map((product) => ({
-    id: product.id.toString(),
-  }));
-}
-
-async function getProduct(id) {
-  return products.find(product => product.id === parseInt(id));
+    if (docSnap.exists()) {
+      return docSnap.data(); // returns the product data
+    } else {
+      throw new Error("No such product!");
+    }
+  } catch (error) {
+    console.error("Error fetching product:", error);
+    return null;
+  }
 }
 
 export default async function ProductPage({ params }) {
-  const product = await getProduct(params.id);
-  
+  const product = await fetchProductById(params.id)
+
   if (!product) {
     return <div className={styles.notFound}>Product not found</div>;
   }
@@ -42,20 +33,20 @@ export default async function ProductPage({ params }) {
           <img src={product.image} alt={product.name} />
         </div>
         <div className={styles.thumbnailContainer}>
-          {product.altImages.map((img, index) => (
+          {product.photos.map((img, index) => (
             <div key={index} className={styles.thumbnail}>
               <img src={img} alt={`${product.name} ${index + 1}`} />
             </div>
           ))}
         </div>
       </div>
-      
+
       <div className={styles.productDetails}>
         <h1>{product.name}</h1>
         <p className={styles.price}>${product.price}</p>
         <p className={styles.category}>{product.category}</p>
         <p className={styles.description}>{product.description}</p>
-        
+
         <div className={styles.actions}>
           <button className={styles.addToCart}>Add to Cart</button>
           <button className={styles.favorite}>

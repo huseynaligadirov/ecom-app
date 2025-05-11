@@ -96,24 +96,20 @@ const AddProduct = ({set}) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(details);
         
         try {
-            setLoading(true); // Set loading to true when form is submitted
-            
-            // Validate required fields
+            setLoading(true); 
+
             if (!details.title || !details.category || !details.price || !details.photos?.length) {
                 throw new Error('Please fill in all required fields');
             }
-    
-            // Ensure all photo objects have a defined url
+
             const photoUrls = details.photos
             
             if (photoUrls.length === 0) {
                 throw new Error('Photo URLs are missing or invalid');
             }
-    
-            // Prepare the product data
+
             const productData = {
                 title: details.title,
                 category: details.category,
@@ -125,17 +121,14 @@ const AddProduct = ({set}) => {
                 updatedAt: new Date().toISOString()
             };
     
-            // Final check to avoid undefined values
             Object.entries(productData).forEach(([key, value]) => {
                 if (value === undefined) {
                     throw new Error(`Field '${key}' is undefined`);
                 }
             });
     
-            // Add to Firestore
             const docRef = await addDoc(collection(db, 'products'), details);
-    
-            // Reset form and close modal
+
             setDetails({
                 title: '',
                 category: '',
@@ -165,7 +158,6 @@ const AddProduct = ({set}) => {
                     </div>
                 )}
                 
-                {/* Regular Content */}
                 <div className='flex justify-between px-2'>
                     <div></div>
                     <button onClick={()=> set(false)} className='text-black text-[16px] font-bold' >x</button>
