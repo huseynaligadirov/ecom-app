@@ -7,6 +7,7 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import Products from '@/components/dashboard/Products'
+import CategoriesManager from "@/components/dashboard/Caregories";
 
 export default function Dashboard() {
   const [user, setUser] = useState(null);
@@ -14,6 +15,7 @@ export default function Dashboard() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [route, setRoute] = useState('products')
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
@@ -83,13 +85,23 @@ export default function Dashboard() {
       </div>
 
       <div className="tabs flex gap-2 p-2">
-        <button className="bg-red-500 text-white p-2 rounded-md" >Məhsullar</button>
-        <button className="bg-red-500 text-white p-2 rounded-md" >Kateqoriya</button>
+        <button onClick={() => setRoute('products')} className="bg-red-500 text-white p-2 rounded-md" >Məhsullar</button>
+        <button onClick={() => setRoute('categories')} className="bg-red-500 text-white p-2 rounded-md" >Kateqoriya</button>
       </div>
 
       <div className="p-2">
-        <Products />
+        <DashScreen route={route} />
       </div>
     </div>
   );
+}
+
+
+const DashScreen = ({route}) => {
+  switch (route) {
+    case 'products':
+      return <Products />
+    case 'categories':
+      return <CategoriesManager/>
+  }
 }
