@@ -1,6 +1,6 @@
 'use client'
-import React, { useState } from 'react'
-import { collection, addDoc } from 'firebase/firestore'
+import React, { useEffect, useState } from 'react'
+import { collection, addDoc, getDocs } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 import AWS from 'aws-sdk'
 
@@ -15,7 +15,8 @@ const AddProduct = ({set}) => {
     })
     const [loading, setLoading] = useState(false)
     const [uploadProgress, setUploadProgress] = useState(0)
-   
+    const [categories, setCategories] = useState([])
+
     AWS.config.update({
         accessKeyId: process.env.NEXT_PUBLIC_AWS_ACCESS_KEY_ID,
         secretAccessKey: process.env.NEXT_PUBLIC_AWS_SECRET_ACCESS_KEY,
@@ -92,6 +93,9 @@ const AddProduct = ({set}) => {
             ...prev,
             [name]: name === 'price' ? Number(value) : value
         }));
+
+        console.log(details);
+        
     }
 
     const handleSubmit = async (e) => {
@@ -146,6 +150,30 @@ const AddProduct = ({set}) => {
             setLoading(false); 
         }
     };
+
+
+    const fetchCategories = async () => {
+        setLoading(true);
+        const categoriesCollection = collection(db, "categories");
+        try {
+          const snapshot = await getDocs(categoriesCollection);
+          const cats = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+          setCategories(cats);
+          console.log(cats);
+          
+        } catch (error) {
+          console.error("Error fetching categories: ", error);
+        } finally {
+          setLoading(false);
+        }
+    };
+
+    useEffect(()=> {
+        fetchCategories()
+    }, [] )
+
+    console.log(details);
+    
     
     return (
         <div className='absolute top-0 left-0 w-full h-[100vh] bg-[rgba(0,0,0,0.8)] flex items-center justify-center' >
@@ -172,23 +200,21 @@ const AddProduct = ({set}) => {
                         onChange={handleInputChange}
                         required
                     />
-                    <input 
-                        className='text-black p-2 placeholder:text-black border-[1px]' 
-                        placeholder='Kateqoriya' 
-                        type="text" 
-                        name='category'
-                        value={details.category}
-                        onChange={handleInputChange}
-                        required
-                    />
-                    <input 
-                        className='text-black p-2 placeholder:text-black border-[1px]' 
-                        placeholder='Alt kateqoriya' 
-                        type="text" 
-                        name='subcategory'
-                        value={details.subcategory}
-                        onChange={handleInputChange}
-                    />
+                    <select name="category" onChange={e => setDetails({...details, [e.target.name]: e.target.value})}>
+                        <option value="">Not selected</option>
+                        {
+                            categories?.map(item => <option key={item.id} value={item.id}>{item.name}</option>)
+                        }
+                    </select>
+                    {
+                        details.category ?
+                        <select name="subcategory" onChange={e => setDetails({...details, [e.target.name]: e.target.value})} >
+                                                    <option value="">Not selected</option>
+                            {categories.find(x => x.id == details.category).subcategories
+                            .map(item => <option key={item.id} value={item.id}>{item.name}</option>)}
+                        </select>
+                        : ''
+                    }
                     <textarea 
                         className='text-black p-2 placeholder:text-black border-[1px]' 
                         placeholder='Təsvir' 
