@@ -53,14 +53,21 @@ export default async function Home() {
         <div className="hero-content">
         <h1>Welcome to Our Accessories</h1>
         <p>Discover elegant and timeless pieces</p>
+<form 
+action="/products"
+method='GET'
+className="w-4/5 md:w-3/5 flex items-center mx-auto">
 
-        <div className="w-4/5 md:w-3/5 flex items-center mx-auto" >
-        <input className="bg-white text-black border-0 p-2 outline-none w-full" type="text" name="" id="" />
-        {/* <button className="w-[100px] h-[40px] bg-[#FF6F00] " >Axtar</button>   */}
-        <button className="w-[100px] h-[40px] bg-red-800 hover:bg-red-700 transition-colors duration-300 shadow-md">
+      
+        <input className="bg-white text-black border-0 p-2 outline-none w-full" type="text" name="search" placeholder="Search..." />
+        
+        <button type="submit"
+        className="w-[100px] h-[40px] bg-red-800 hover:bg-red-700 transition-colors duration-300 shadow-md">
            Search
         </button>
-        </div>
+   
+
+</form>
              
         </div>
       </section>
